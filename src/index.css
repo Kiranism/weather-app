@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: black;
+  background-color: #23c4ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #dce8f6;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #23c4ed;
+}
+
+body {
+  margin: 0;
+}
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+  border-radius: 3px;
+  border: 1px solid transparent;
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #23c4ed;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #1fa2c2;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.card-header {
+  width: 100%;
+  border-bottom: 2px solid #dce8f6;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 18px;
+  padding: 8px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #23c4ed;
+}
+
+.title-detail {
+  font-size: 17px;
+  padding: 6px 0px;
+  margin: 0px;
+  text-align: left;
+  font-weight: 600;
+  color: #23c4ed;
+}
+
+.left-arrow {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-field {
+  padding: 5px;
+  border: 1px solid #dce8f6;
+  background-color: white;
+  outline: none;
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.input-field:focus::placeholder {
+  color: transparent;
+}
+
+.card-section {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.card-section-detail {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 50px;
+}
+
+.separator {
+  width: 100%;
+  border-bottom: 2px solid #dce8f6;
+  position: relative;
+  margin: 30px 0px;
+}
+
+.separator::before {
+  content: "or";
+  position: absolute;
+  color: #ccc;
+  left: 50%;
+  top: -13px;
+  background-color: #fff;
+  padding: 0px 10px;
+  transform: translateX(-50%);
+}
+.suggestion {
+  position: absolute;
+  width: 99%;
+  z-index: 10;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #dce8f6;
+  box-shadow: 0px 10px 15px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 120px;
+}
+
+.suggestion-items span {
+  margin: 10px;
+}
+.suggestion-items:hover {
+  background-color: rgb(210, 210, 210);
+}
+.card-footer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border-top: 2px solid #dce8f6;
+}
+.card-mini {
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.with-border-right {
+  border-right: 2px solid #dce8f6;
+}
+
+.temp-value {
+  font-size: 38px;
+  font-weight: 600;
+}
+.temp-desc {
+  text-transform: capitalize;
+}
+.temp-loc {
+  font-size: 14px;
+}
+
+.text-value {
+  font-size: 12px;
+  font-weight: 600;
+}
+.text-desc {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* skeleton  */
+.skeleton {
+  height: 300px;
+  width: 217px;
+  background: linear-gradient(
+    to right,
+    white,
+    #8ad3d7,
+    #dce8f6,
+    #8ad3d7,
+    white
+  );
+  background-size: 300% 100%;
+  animation: pulse 5s infinite linear;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+}

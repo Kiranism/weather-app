@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  box-sizing: border-box;
 }
 body {
   min-height: 100vh;
@@ -56,9 +57,12 @@ button:hover {
   align-items: center;
   height: 100vh;
   overflow: hidden;
+  width: 280px;
+  margin: 0 auto;
 }
 
 .card-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,6 +118,12 @@ button:hover {
   color: transparent;
 }
 
+.message {
+  width: 100%;
+  text-align: left;
+  word-wrap: break-word;
+}
+
 .card-section {
   display: flex;
   flex: 1;
@@ -124,11 +134,11 @@ button:hover {
 }
 .card-section-detail {
   display: flex;
-  flex: 1;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 50px;
+  padding: 10px 30px;
 }
 
 .separator {
@@ -217,7 +227,7 @@ button:hover {
 /* skeleton  */
 .skeleton {
   height: 300px;
-  width: 217px;
+  width: 280px;
   background: linear-gradient(
     to right,
     white,

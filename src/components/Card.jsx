@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CITY_URL, geoOptions } from "../service";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Card = () => {
   const [filteredData, setFilteredData] = useState([]);
@@ -28,7 +29,7 @@ const Card = () => {
   const handleInput = async (e) => {
     const value = e.target.value;
     let filArr = await getData(value);
-    setFilteredData(filArr.data);
+    setFilteredData(filArr);
   };
 
   const handleMenuClick = (item) => {
@@ -49,7 +50,7 @@ const Card = () => {
     }
 
     function error() {
-      console.log("Unable to retrieve your location");
+      toast.error("Unable to retrieve your location");
     }
   };
 
@@ -68,13 +69,22 @@ const Card = () => {
             className="input-field"
             placeholder="Enter city name"
           />
-          {!!filteredData?.length && (
+          {!!filteredData?.data?.length && (
             <div className="suggestion">
-              {filteredData?.map((item) => (
+              {filteredData?.data?.map((item) => (
                 <div key={item.id} className="suggestion-items">
                   <span onClick={() => handleMenuClick(item)}>{item.name}</span>
                 </div>
               ))}
+            </div>
+          )}
+          {filteredData.message && (
+            <div className="suggestion">
+              <div className="suggestion-items">
+                <span onClick={() => setFilteredData([])}>
+                  {filteredData.message}
+                </span>
+              </div>
             </div>
           )}
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import LoadingCard from "./LoadingCard";
+import { toast } from "react-hot-toast";
 
 const DetailCard = () => {
   const [searchParams] = useSearchParams();
@@ -22,7 +23,7 @@ const DetailCard = () => {
       const response = await res.json();
       setData(response);
     } catch (error) {
-      console.log("Something Went Wrong");
+      toast.error("Something Went Wrong");
     } finally {
       setLoading(false);
     }

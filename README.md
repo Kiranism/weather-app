@@ -41,3 +41,4 @@ Add your API keys and configurations to the `.env` file:
 - React.js
 - React Router
 - OpenWeatherMap API
+- GeoDB Cities API

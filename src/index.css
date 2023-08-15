@@ -4,21 +4,23 @@
   font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
   color: black;
   background-color: #23c4ed;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 * {
   margin: 0;
   padding: 0;
   font: inherit;
 }
-
+body {
+  min-height: 100vh;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
+}
+html {
+  height: fill-available;
+  height: -webkit-fill-available;
+}
 ::-webkit-scrollbar-track {
   background-color: #dce8f6;
 }
@@ -32,13 +34,6 @@
   background-color: #23c4ed;
 }
 
-body {
-  margin: 0;
-}
-input {
-  font-family: "Poppins", sans-serif;
-}
-
 button {
   border-radius: 3px;
   border: 1px solid transparent;
@@ -48,6 +43,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #23c4ed;
+  color: white;
   cursor: pointer;
 }
 button:hover {
@@ -58,7 +54,8 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .card-container {

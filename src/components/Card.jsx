@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { CITY_URL, geoOptions } from "../service";
 import { useNavigate } from "react-router-dom";
 
 const Card = () => {
-  const [input, setInput] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const navigate = useNavigate();
 
@@ -28,15 +27,14 @@ const Card = () => {
 
   const handleInput = async (e) => {
     const value = e.target.value;
-    setInput(value);
     let filArr = await getData(value);
     setFilteredData(filArr.data);
   };
 
   const handleMenuClick = (item) => {
-    setInput(item.name);
     navigate(`/weather?lat=${item.latitude}&lon=${item.longitude}`);
   };
+  const optimizedHandleInput = useCallback(debounceFn(handleInput, 2000), []);
 
   const handleLocationClick = () => {
     if (navigator.geolocation) {
@@ -56,7 +54,7 @@ const Card = () => {
   };
 
   return (
-    <div className="card-container" style={{ backgroundColor: "white" }}>
+    <div className="card-container">
       <div className="card-header">
         <h2 className="title">Weather App</h2>
       </div>
@@ -64,8 +62,9 @@ const Card = () => {
         <div className="input-container">
           <input
             type="text"
-            onChange={(e) => handleInput(e)}
-            value={input}
+            onChange={optimizedHandleInput}
+            name="search"
+            autoComplete="off"
             className="input-field"
             placeholder="Enter city name"
           />

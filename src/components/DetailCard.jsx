@@ -42,40 +42,47 @@ const DetailCard = () => {
         />
         <h2 className="title-detail">Weather App</h2>
       </div>
-
-      <div className="card-section-detail">
-        {data?.weather && data?.weather[0].icon && (
-          <img
-            src={`/icons/${data?.weather[0]?.icon}.png`}
-            height="100px"
-            width="100px"
-          />
-        )}
-        <h1 className="temp-value">{Math.round(data.main?.temp)}°C</h1>
-        <h4 className="temp-desc">
-          {data?.weather && data?.weather[0]?.description}
-        </h4>
-        <div className="location">
-          <img src="/location.png" width="15px" height="15px" />
-          <h5 className="temp-loc">{data?.name}</h5>
-        </div>
-      </div>
-      <div className="card-footer">
-        <div className="card-mini with-border-right ">
-          <img src="/temp.png" width="35px" height="35px" />
-          <div>
-            <p className="text-value">{Math.round(data?.main?.feels_like)}°C</p>
-            <p className="text-desc">Feels like</p>
+      {data.cod === "400" ? (
+        <div className="card-section-detail">{data.message}</div>
+      ) : (
+        <>
+          <div className="card-section-detail">
+            {data?.weather && data?.weather[0].icon && (
+              <img
+                src={`/icons/${data?.weather[0]?.icon}.png`}
+                height="100px"
+                width="100px"
+              />
+            )}
+            <h1 className="temp-value">{Math.round(data.main?.temp)}°C</h1>
+            <h4 className="temp-desc">
+              {data?.weather && data?.weather[0]?.description}
+            </h4>
+            <div className="location">
+              <img src="/location.png" width="15px" height="15px" />
+              <h5 className="temp-loc">{data?.name}</h5>
+            </div>
           </div>
-        </div>
-        <div className="card-mini">
-          <img src="/drop.png" width="35px" height="35px" />
-          <div>
-            <p className="text-value">{data?.main?.humidity}%</p>
-            <p className="text-desc">Humidity</p>
+          <div className="card-footer">
+            <div className="card-mini with-border-right ">
+              <img src="/temp.png" width="35px" height="35px" />
+              <div>
+                <p className="text-value">
+                  {Math.round(data?.main?.feels_like)}°C
+                </p>
+                <p className="text-desc">Feels like</p>
+              </div>
+            </div>
+            <div className="card-mini">
+              <img src="/drop.png" width="35px" height="35px" />
+              <div>
+                <p className="text-value">{data?.main?.humidity}%</p>
+                <p className="text-desc">Humidity</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 };

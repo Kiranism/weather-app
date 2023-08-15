@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { CITY_URL, geoOptions } from "../service";
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +34,7 @@ const Card = () => {
   const handleMenuClick = (item) => {
     navigate(`/weather?lat=${item.latitude}&lon=${item.longitude}`);
   };
-  const optimizedHandleInput = useCallback(debounceFn(handleInput, 2000), []);
+  const optimizedHandleInput = debounceFn(handleInput, 2000);
 
   const handleLocationClick = () => {
     if (navigator.geolocation) {
